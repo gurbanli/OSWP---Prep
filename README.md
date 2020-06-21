@@ -1,6 +1,12 @@
 # OSWP
 
 
+### Injection test
+```
+aireplay-ng -9 mon0
+aireplay-ng -9 -i wlan1 mon0
+```
+
 ### WEP (ARP replay attack - With Client)
 ```
 airmon-ng start wlan0 3
