@@ -1,6 +1,13 @@
 # OSWP
 
 
+### Before begin
+```
+iw dev wlan0 scan | egrep "DS\ Parameter\ set|SSID"
+iw list
+```
+
+
 ### Injection test
 ```
 aireplay-ng -9 mon0
